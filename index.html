@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Kitumba Lights- Organizadora de Eventos</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+  <style>
+     .card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #ccc; 
+      max-width: 650px;
+      margin: 40px auto;
+    }
+
+   .card h2 {
+      margin: 0 0 24px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+   .campo { margin-bottom: 20px; } /* Agrupa label + input. Isso resolve a distância */
+
+    label {
+      display: block;
+      margin-bottom: 8px; /* Era 15px. Agora 8px cola no input */
+      font-weight: 600;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      box-sizing: border-box;
+      border: 1.5px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.2s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: black;
+      box-shadow: 0 0 0 3px rgba(79, 46, 229, 0.1);
+    }
+
+    
+   .grupo-opcoes {
+      display: flex;
+      flex-direction: column; /* 1 por linha no mobile */
+      gap: 10px;
+      margin-top: 8px;
+    }
+    @media(min-width: 600px) {
+     .grupo-opcoes { flex-direction: row; flex-wrap: wrap; } /* 2 por linha no desktop */
+    }
+
+   .opcao {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1.5px solid #ccc;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+      font-size: 14px;
+    }
+   .opcao:hover { border-color: #8A38D5; background: #f5f3ff; }
+   .opcao input:checked + span { font-weight: 700; color: #8A38D5; }
+   .opcao:has(input:checked) { border-color: #8A38D5; background: #f5f3ff; } /* Caixa fica roxa quando marca */
+
+   .opcao input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--roxo); /* Cor do radio/checkbox */
+      margin: 0;
+    }
+
+    #btn{
+      width: 100%;
+      padding: 16px;
+      background:#25d366;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    #btn:hover { background: forestgreen; transform: translateY(-1px); }
+
+   .data-selecionada {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+   </style>
+
+<body>
+<!-- PEÇA 2: HEADER + HERO -->
+<header>
+  <div class="container">
+    <h1 class="logo">
+  Kitumba Lights 
+  <img 
+     width="32" 
+     src="spotlight.png" 
+     alt="Spotlight icon">
+</h1>   <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#solicitar">Solicitar</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Transformamos a tua ideia <br> em um evento inesquecível</h2>
+    <p>Casamentos, aniversários, eventos corporativos. Cuidamos de tudo pra ti.</p>
+    <a href="#solicitar" class="btn-cta">
+      <i class="fa-solid fa-clipboard-list"></i> Pedir Orçamento
+    </a>
+  </div>
+</section>
+  <!-- PEÇA 3: SERVIÇOS -->
+<section id="servicos" class="servicos">
+  <div class="container">
+    <h2 class="titulo-secao">O que fazemos por ti</h2>
+    <div class="grid-servicos">
+      
+      <div class="card-servico">
+        <img width="200px" height="200px" src="married.svg"></img>
+        <h3>Casamentos</h3>
+        <p>Do pedido ao “sim”. Decoração, buffet, som e tudo mais pra teu dia ser perfeito.</p>
+      </div>
+
+      <div class="card-servico">
+ <img width="200px" height="200px" src="btd.svg"></img>
+        <h3>Aniversários</h3>
+        <p>Festas infantis e adultas temáticas. Criamos experiências que marcam memória.</p>
+      </div>
+
+      <div class="card-servico">
+  <img width="200px" height="200px" src="corporativo.svg"></img>
+   <h3>Corporativo</h3>
+        <p>Confraternizações, lançamentos, eventos de empresa. Profissionalismo do início ao fim.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- PEÇA 4: PORTFÓLIO -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <h2 class="titulo-secao">Alguns dos nossos eventos</h2>
+    <div class="grid-portfolio">
+      
+      <div class="item-portfolio">
+        <img src="kitumba_imgs/casamentos.png" alt="Casamento elegante">
+      </div>
+        <div class="item-portfolio">
+        <img src="kitumba_imgs/matrimonial.png" alt="Casamento elegante">
+      </div>
+      <div class="item-portfolio">
+        <img src="kitumba_imgs/palco.png" alt="Palco ">
+      </div>
+         <div class="item-portfolio">
+        <img src="kitumba_imgs/instalando.png" alt="Decoração de festa">
+      </div>
+      <div class="item-portfolio">
+        <img src="kitumba_imgs/cimeira.png" alt="Cimeira dos chefes de Estado">
+      </div>
+      <div class="item-portfolio">
+        <img src="kitumba_imgs/chefeDosEstados.png" alt="Cimeira dos Chefes de Estado">
+      </div>
+
+    </div>
+  </div>
+</section>
+ <!-- PEÇA 5: CONTATO -->
+  <section id="solicitar">
+     <div class="card">
+    <h2 style="text-align:center;color:black;">Pedido de Orçamento</h2>
+           <img src="party_icon.svg" width="300px" height="234">
+  
+</img>
+
+    <div id="dataSelecionada" class="data-selecionada" style="display:none">
+      <strong>Data escolhida:</strong> <span id="textoData"></span>
+    </div>
+
+    <form id="formOrcamento">
+      <input type="hidden" id="dataEvento" name="data">
+
+      <label>Tipo de evento</label>
+      <select id="tipoEvento" required>
+        <option value="">Selecione...</option>
+        <option>Casamento</option>
+        <option>Festa de Aniversario</option>
+        <option>Evento Corporativo</option>
+        <option>Decoração </option>
+        <option>Outro</option>
+      </select>
+
+      <label>Data do evento</label>
+      <input type="date" id="inputData" required>
+
+      <label>Nº de convidados</label>
+      <select id="convidados" required>
+        <option value="">Selecione...</option>
+        <option>Até 50</option>
+        <option>50 a 100</option>
+        <option>100 a 200</option>
+        <option>200 a 300</option>
+        <option>300+</option>
+      </select>
+
+      <label>Local</label>
+      <div class="grupo-radio">
+        <label><input type="radio" name="local" value="Já tenho salão" required> Já tenho salão</label>
+        <label><input type="radio" name="local" value="Preciso indicação"> Preciso de indicação</label>
+      </div>
+
+      <label>Quais serviços precisa?</label>
+      <div class="grupo-check">
+        <label><input type="checkbox" name="servicos" value="Buffet"> Buffet</label>
+        <label><input type="checkbox" name="servicos" value="Decoração"> Decoração</label>
+        <label><input type="checkbox" name="servicos" value="Som/DJ"> Som/DJ</label>
+        <label><input type="checkbox" name="servicos" value="Foto/Vídeo"> Foto/Vídeo</label>
+        <label><input type="checkbox" name="servicos" value="Cerimonial"> Cerimonial</label>
+      </div>
+
+      <label>Faixa de investimento</label>
+      <select id="faixa" required>
+        <option value="">Selecione...</option>
+        <option>Até 800.000 Kz</option>
+        <option>800.000 a 1.500.000 Kz</option>
+        <option>1.500.000 a 3.000.000 Kz</option>
+        <option>Acima de 3.000.000 Kz</option>
+      </select>
+
+      <label>Seu nome</label>
+      <input type="text" id="nome" required>
+
+      <label>Seu WhatsApp</label>
+      <input type="tel" id="whatsapp" placeholder="923xxxxxx" required>
+
+      <button id="btn" type="submit">Enviar Pedido no WhatsApp<i class="fab fa-whatsapp"></i></button>
+    </form>
+  </div>
+
+  </section>
+
+  <footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Kitumba Light</h4>
+        <p style="color:#94a3b8; margin-bottom:20px">Mestre de cerimônia</p>
+        <div class="social">
+          <a href="https://www.instagram.com/kitumbalights?igsh=MW10eDRtaXYxcWMzdQ=="><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/422916474578587"><i class="fab fa-facebook"></i></a>
+          <a href="https://wa.me/944890479"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="#">Montagem de luzes</a>
+        <a href="#">Fogo de artificio</a>
+        <a href="#">Palco</a>
+        <a href="#">Música</a>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="#">Sobre</a>
+        <a href="#">Portfólio</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#"><i class="fas fa-map-pin"></i>Luanda, Angola</a>
+        <a href="tel:+244944890479"><i class="fa-solid fa-mobile-screen"></i>+244 944 890 479</a>
+        <a href="mailto:kitumbalights@gmail.com"><i class="fas fa-envelope"></i>kitumbalights@gmail.com</a>
+           </div>
+    </div>
+    <div style="text-align:center; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); color:#94a3b8">
+      © 2026 Kitumba Lights. Todos os direitos reservados.
+     
+
+
+    </div>
+  </div>
+</footer>
+<script>lucide.createIcons()</script>
+    <script>
+    
+
+const params = new URLSearchParams(window.location.search);
+const dataURL = params.get('data');
+
+if (dataURL) {
+  document.getElementById('dataEvento').value = dataURL;
+  document.getElementById('inputData').value = dataURL;
+  document.getElementById('textoData').innerText = new Date(dataURL).toLocaleDateString('pt-PT');
+  document.getElementById('dataSelecionada').style.display = 'block';
+}
+
+const hoje = new Date().toISOString().split('T')[0];
+document.getElementById('inputData').min = hoje; 
+  
+
+
+document.getElementById('inputData').addEventListener('change', function(e) {
+  document.getElementById('dataEvento').value = e.target.value;
+});
+  
+    
+ document.getElementById('formOrcamento').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const tipo = document.getElementById('tipoEvento').value;
+  const data = document.getElementById('dataEvento').value;
+  const convidados = document.getElementById('convidados').value;
+  const local = document.querySelector('input[name="local"]:checked')?.value;
+  const faixa = document.getElementById('faixa').value;
+  const nome = document.getElementById('nome').value;
+  const whatsapp = document.getElementById('whatsapp').value;
+
+  const servicosMarcados = Array.from(document.querySelectorAll('input[name="servicos"]:checked')).map(el => el.value);
+  const servicos = servicosMarcados.length ? servicosMarcados.join(', ') : 'Não informado';
+
+  if (!local) { alert('Por favor, informe se já tem local ou precisa indicação.'); return; }
+  if (servicosMarcados.length === 0) { alert('Marque pelo menos 1 serviço.'); return; }
+
+  const numeroEmpresa = '+244922579570'; 
+  const texto = `*Novo Pedido de Orçamento - Site*
+Saudações de acordo ao fuso ao horário, chamo-me ${nome}
+Pretendo realizar um evento: *${tipo}*
+Para : *${new Date(data).toLocaleDateString('pt-PT')}*
+Convidados: *${convidados}*
+*Local:* ${local}
+*Serviços:* ${servicos}
+*Faixa:* ${faixa}
+
+*Meu número do WhatsApp:* ${whatsapp}`;
+
+  const linkWhatsApp = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(texto)}`;
+  window.open(linkWhatsApp, '_blank');
+});   
+  </script>
+
+</body>
+</html>
