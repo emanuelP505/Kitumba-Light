@@ -1,4 +1,3 @@
-
 :root {
   --azul-noite: #0A0E27;      /* fundo principal, substitui o preto */
   --azul-palco: #1E3A8A;      /* azul das luzes, para gradientes */
@@ -9,12 +8,20 @@
   --cinza-escuro: #131835;    /* fundo de seção, substitui o cinza claro */
   --cinza-texto: #94A3B8;     /* texto secundário */
   --header-altura: 70px;
+  --gold: #D4A017;            
 }
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw; /* Trava no tamanho de largura da tela */
+  overflow-x: hidden; /* <<< Mata a barra branca lateral */
 }
 
 html {
@@ -29,9 +36,16 @@ body {
   font-size: clamp(16px, 1.2vw, 18px);
 }
 
-/* PEÇA 2: HEADER + HERO */
+/* IMAGENS */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* CONTAINER */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -57,27 +71,25 @@ header .container {
 }
 
 .logo {
-  Display:flex;align-items:center;Gap:0.75rem;
+  display: flex; /* Corrigido: D maiúsculo */
+  align-items: center;
+  gap: 0.75rem; /* Corrigido: G maiúsculo */
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--branco);
-    background: var(--azul-noite); /* Fundo do header/logotipo todo */
-padding: 0.5rem 1rem;
+  background: var(--azul-noite);
+  padding: 0.5rem 1rem;
   border-radius: 0.75rem;
 }
 
-
 .logo img {
-   width: 32px;          /* 4. Tamanho do ícone. 100px é gigante pra logo */
+  width: 32px;
   height: 32px;
   border-radius: 0.5rem;
   background: transparent;
-
-  padding: 2px;         /* Dá um respiro pro ícone no fundo branco */
+  padding: 2px;
   object-fit: contain;
-    filter: invert(2) brightness(1); /* PNG preto -> Branco */
-
-
+  filter: invert(1) brightness(1); /* Corrigido: invert(2) pra invert(1) */
 }
 
 .logo span {
@@ -157,8 +169,7 @@ nav a:hover {
   box-shadow: 0 10px 40px rgba(236, 72, 153, 0.5);
 }
 
-/* PEÇA 3: SERVIÇOS */
-
+/* SERVIÇOS */
 .servicos {
   padding: 6rem 0;
   background: var(--cinza-escuro);
@@ -211,8 +222,7 @@ nav a:hover {
   line-height: 1.6;
 }
 
-/* PEÇA 4: PORTFÓLIO */
-
+/* PORTFÓLIO */
 .portfolio {
   padding: 6rem 0;
   background: var(--azul-noite);
@@ -248,8 +258,7 @@ nav a:hover {
   transform: scale(1.08);
 }
 
-/* PEÇA 5: CONTATO + FOOTER */
-
+/* CONTATO + FOOTER */
 .contato {
   padding: 6rem 0;
   background: linear-gradient(135deg, var(--azul-palco), var(--roxo-neon));
@@ -272,42 +281,49 @@ nav a:hover {
   padding: 1.3rem 3rem;
 }
 
-
-
-/*Footer*/
-footer{
+footer {
   padding: 60px 0 40px;
   background: var(--azul-noite);
   color: var(--cinza-texto);
 }
-.footer-grid{
+
+.footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
+  gap: clamp(20px, 4vw, 40px); /* Gap fluido pra não estourar */
   margin-bottom: 40px;
 }
-.footer-col h4{
+
+.footer-col h4 {
   margin-bottom: 16px;
   font-size: 18px;
   color: var(--gold);
 }
-.footer-col a{
+
+.footer-col a {
   display: block;
   color: #94A3B8;
   text-decoration: none;
   margin-bottom: 12px;
   transition: color 0.2s;
+  word-break: break-word; /* Evita estouro de link longo */
+  overflow-wrap: anywhere;
 }
-.footer-col a:hover{color: var(--gold)}
-.social{
+
+.footer-col a:hover {
+  color: var(--gold);
+}
+
+.social {
   display: flex;
   gap: 16px;
   margin-top: 20px;
 }
-.social a{
+
+.social a {
   width: 40px;
   height: 40px;
-  background: rgba(212,160,23,0.15);
+  background: rgba(212, 160, 23, 0.15);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -316,16 +332,12 @@ footer{
   color: var(--magenta);
   transition: background 0.2s;
 }
-.social a:hover{
-  background: rgba(212,160,23,0.3);
+
+.social a:hover {
+  background: rgba(212, 160, 23, 0.3);
 }
 
-
-
-
-
-/* RESPONSIVIDADE FINAL */
-
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   nav {
     display: none;
@@ -336,20 +348,17 @@ footer{
   }
   
   .container {
-    padding: 0 1rem; /* Era 1.5rem ou 2rem */
-             }
-  
-  /* Corrige o footer quebrado no mobile */
+    padding: 0 1rem; /* <<< Padding menor no mobile */
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
   .footer-col a {
-    word-break: break-word;
-    overflow-wrap: anywhere;
-    display: flex;
+    display: flex; /* Mantive teu flex */
     align-items: center;
     gap: 8px;
   }
-}
+  }
