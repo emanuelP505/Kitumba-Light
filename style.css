@@ -328,7 +328,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 1.75rem;
   color: var(--magenta);
   transition: background 0.2s;
 }
